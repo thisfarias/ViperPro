@@ -1,0 +1,10 @@
+{
+	"name": "Flappy Dragon",
+	"short_name": "Flappy Dragon",
+	"description": "",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "any",
+	"background_color": "#ffffff",
+	"icons": []
+}

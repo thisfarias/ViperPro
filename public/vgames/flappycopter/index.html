@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <title>Flappy Copter</title>
+        <meta content="Flappy Copter" name="Title" />
+        <meta
+            content="Flappy Copter is a HTML5 game where you where you controls the copter to past through the pipes without crashing in the rounded world."
+            name="description"
+        />
+        <meta
+            content="flappy, helicopter, bird, pipes, round, world, tap, guide, navigate"
+            name="keywords"
+        />
+        <meta content="Flappy Copter" property="og:title" />
+        <meta content="Flappy Copter" property="og:site_name" />
+        <meta content="images/share.jpg" property="og:image" />
+        <meta
+            content="Flappy Copter is a HTML5 game where you where you controls the copter to past through the pipes without crashing in the rounded world."
+            property="og:description"
+        />
+        <meta content="summary" name="twitter:card" />
+        <meta content="Flappy Copter" name="twitter:title" />
+        <meta
+            content="Flappy Copter is a HTML5 game where you where you controls the copter to past through the pipes without crashing in the rounded world."
+            name="twitter:description"
+        />
+        <meta content="images/share.jpg" name="twitter:image" />
+        <meta
+            name="author"
+            content="José Fernando dos Santos Florêncio /// Crie Art Creative Agency Systems 2023 | (62) 99243-4018 / Goiânia-GO"
+        />
+        <meta
+            content="width=device-width,initial-scale=1,user-scalable=no"
+            name="viewport"
+        />
+        <script>
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                    document.createTextNode("@-ms-viewport{width:device-width}")
+                ),
+                    document
+                        .getElementsByTagName("head")[0]
+                        .appendChild(msViewportStyle);
+            }
+        </script>
+        <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="css/normalize.css" rel="stylesheet" />
+        <link href="css/main.css" rel="stylesheet" />
+        <script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div id="mainLoader">
+            <img src="images/loader.png" /><br /><span>0</span>
+        </div>
+        <div id="mainHolder">
+            <div id="notSupportHolder">
+                <div class="notSupport">
+                    Your browser isn't supported.<br />Please update your
+                    browser in order to run the game.
+                </div>
+            </div>
+            <div id="canvasHolder">
+                <canvas height="768" id="gameCanvas" width="1280"></canvas>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script>
+            window.jQuery ||
+                document.write(
+                    '<script src="js/vendor/jquery.min.js"><\/script>'
+                );
+        </script>
+        <script src="js/jquery.min_1.js"></script>
+        <script src="js/detectmobilebrowser.js"></script>
+        <script src="js/createjs.min.js"></script>
+        <script src="js/TweenMax.min.js"></script>
+        <script src="js/init.js"></script>
+        <script
+            src="js/cross.js"
+            data-banner="true"
+            data-link="https://crieart.com.br"
+        ></script>
+    </body>
+</html>

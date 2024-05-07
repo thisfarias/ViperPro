@@ -1,0 +1,2 @@
+./Helpers/Core.php => Found (base64_encode, base64_decode, str_replace, substr)
+./app/Helpers/Core.php => Found (base64_encode, base64_decode, str_replace, substr)

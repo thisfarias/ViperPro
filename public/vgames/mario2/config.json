@@ -1,0 +1,21 @@
+{
+    "usuario": {
+      "id": 1,
+      "has_first_deposit": true,
+      "balances": {
+        "money_out": {
+          "paid": 16,
+          "total": 16
+        },
+        "money_in": {
+          "paid": 200,
+          "total": 200
+        },
+        "total_balance": 184
+      }
+    },
+    "aposta": {
+      "amount": 15
+    },
+    "dificult": "3"
+  }

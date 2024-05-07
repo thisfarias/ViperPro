@@ -1,0 +1,24 @@
+{
+   "action": {
+      "default_icon": "icons/icon-128.png",
+      "default_popup": "popup.html",
+      "default_title": "Tomb Runner"
+   },
+   "background": {
+      "service_worker": "js/inout.js"
+   },
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "homepage_url": "https://crieart.com.br/game/tomb-runner/?play",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtYropwwB/3z66uoNFD0cvx9+XrguMhtHjfuckHlSqtTorrcSIk9eeFaYWGMlI9yOdT5YFRcjt0rglo8lpu22XpUqFqLW+i7jUz9FcHwn0TMTwUvWrRdeuVe0zijLxFpWwGaRcAwkJ5fCDQwnRLw1DBuLWGL69R662hDj/dfuUzQWV7Q+o+qs2cHHDgNL+l/HD7p2pJcqqUENom/ni5c13otMNak9PEd6OMuecw1oce/YGeFOm65z5ott7KsHeyB8vcMhFWj3njJ1KP3MEBZQzMzNNvgWsjJnZJ8iD4UONuhz+SxB7A0R29g9BgUKvaqHQdDazcKrWD3GIGyfPfwkOwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "offline_enabled": true,
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "24"
+}

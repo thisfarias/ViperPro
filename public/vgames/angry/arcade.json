@@ -1,0 +1,37 @@
+{
+	"name": "Angry Crash",
+	"version": "1.0.0.0",
+	"description": "",
+	"id": "com.crieart.AngryCash",
+	"unique-id": "2flb5374m7m20",
+	"viewport-width": 1280,
+	"viewport-height": 720,
+	"author": "Soft Hub",
+	"email": "",
+	"website": "www.crieart.com.br",
+	"orientations": "landscape",
+	"c2version": "244",
+	"c3version": "r368.2",
+	"ife": false,
+	"used-plugins": [
+		"Sprite",
+		"Touch",
+		"Audio",
+		"Browser",
+		"Keyboard",
+		"Particles",
+		"Spritefont2",
+		"Function",
+		"AJAX",
+		"Json"
+	],
+	"used-behaviors": [
+		"Sin",
+		"Pin",
+		"Fade",
+		"solid",
+		"Physics",
+		"DragnDrop",
+		"Bullet"
+	]
+}

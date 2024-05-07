@@ -1,0 +1,421 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flappy Money</title>
+    <!-- <meta name="viewport" content="width=768"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.createjs.com/Demos/EaselJS/assets/preloadjs-NEXT.min.js"></script>
+    <script src="https://code.createjs.com/createjs-2013.09.25.min.js"></script>
+    <script src="http://www.appcycle.me/flappy/ndgmr.Collision.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="apple-touch-icon.png">
+
+    <script src="../js/iframe-control.js"></script>
+
+</head>
+
+<body onload="init();">
+<canvas id="testCanvas" width="768" height="1024"></canvas>
+
+<audio autoplay>
+    <source src="passarinho.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+
+
+<audio id="meuAudio" style="display: none;" controls>
+    <source src="coin.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+
+</body>
+
+<div id="extra">
+    <div class="centered-div hidden">
+        <form id="saldoForm" action="scripts/gainscore.php" method="post">
+            <input type="hidden" id="moneyInput" name="money" value="">
+            <input type="hidden" name="meta" id="metaInput" value="">
+        </form>
+
+    </div>
+</div>
+
+
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+
+    #resgatarSaldo {
+
+        width: 150px;
+        height: 50px;
+        border: 1px solid yellow;
+        background: black;
+        color: yellow;
+    }
+
+    @font-face {
+        font-family: 'Flappy Bird';
+        src: url('http://www.appcycle.me/flappy/fonts/FB.eot');
+        src: url('http://www.appcycle.me/flappy/fonts/FB.eot?#iefix') format('embedded-opentype'),
+        url('http://www.appcycle.me/flappy/fonts/FB.woff') format('woff'),
+        url('http://www.appcycle.me/flappy/fonts/FB.ttf') format('truetype'),
+        url('fonts/FB.svg#04b_19regular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body,
+    html {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        height: 100%;
+        background-image: url('background.png');
+        /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho correto para a sua imagem */
+        background-size: cover;
+        /* Para cobrir toda a tela */
+        background-repeat: no-repeat;
+        /* Para evitar a repetição da imagem */
+    }
+
+    canvas {
+        border: 1px solid black;
+        margin-bottom: -4px;
+        max-height: 100%;
+    }
+
+    iframe {
+        position: fixed;
+        top: 0px;
+        margin-left: -76px;
+    }
+
+    #test-canvas {
+        position: relative;
+
+    }
+
+    @media (max-width: 2048px) {
+
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+            max-width: 2048px;
+        }
+
+
+    }
+
+
+    @media (max-width: 1920px) {
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+    @media (max-width: 1444px) {
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1440px;
+            height: 884px;
+            z-index: 10;
+        }
+
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 5%;
+            /* Define a margem esquerda no meio da tela */
+            transform: translate(-50%, -50%);
+            /* Move o elemento de volta 50% da sua própria largura e altura */
+
+        }
+
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+
+    @media (max-width: 1024px) {
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1024px;
+            height: 884px;
+            z-index: 10;
+        }
+
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 5%;
+            /* Define a margem esquerda no meio da tela */
+            transform: translate(-50%, -50%);
+            /* Move o elemento de volta 50% da sua própria largura e altura */
+
+        }
+
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+
+    @media (max-width: 768px) {
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 768px;
+            height: 884px;
+            z-index: 10;
+        }
+
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 5%;
+            /* Define a margem esquerda no meio da tela */
+
+        }
+
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+    @media (max-width: 475px) {
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 5%;
+            /* Define a margem esquerda no meio da tela */
+            transform: translate(-50%, -50%);
+            /* Move o elemento de volta 50% da sua própria largura e altura */
+
+        }
+    }
+
+    @media (max-width: 2560px) {
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2560px;
+            height: 884px;
+            z-index: 10;
+        }
+
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 50%;
+            /* Define a margem esquerda no meio da tela */
+            transform: translate(-50%, -50%);
+            /* Move o elemento de volta 50% da sua própria largura e altura */
+
+        }
+
+        #resgatarSaldo {
+            width: 150px;
+            height: 50px;
+            border: 1px solid yellow;
+            background: black;
+            color: yellow;
+        }
+
+    }
+
+
+    @media (max-width: 425px) {
+
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 425px;
+            height: 884px;
+            z-index: 10;
+        }
+
+        .centered-div {
+            position: absolute;
+            z-index: 99999999;
+            top: 50%;
+            /* Define o topo no meio da tela */
+            left: 50%;
+            /* Define a margem esquerda no meio da tela */
+
+        }
+
+
+        canvas {
+            margin-left: -100px;
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+    @media (max-width: 320px) {
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 884px;
+            z-index: 10;
+        }
+
+
+        canvas {
+            margin-left: -200px;
+            margin-bottom: -4px;
+            max-height: 100%;
+
+
+        }
+
+        .centered-div {
+            margin-top: 10%;
+            margin-left: 20%;
+            position: absolute;
+            z-index: 99999999;
+        }
+
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 768px;
+        }
+
+
+    }
+
+    @media (max-width: 375px) {
+
+        .centered-div {
+            margin-top: 10%;
+            margin-left: 15%;
+            position: absolute;
+            z-index: 99999999;
+        }
+
+
+        #extra .layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 375px;
+            height: 884px;
+            z-index: 10;
+        }
+
+
+        canvas {
+            margin-bottom: -4px;
+            max-height: 100%;
+        }
+
+
+        #test-canvas {
+            position: relative;
+            margin-bottom: -4px;
+            max-height: 568px;
+        }
+
+
+    }
+</style>
+
+<!-- <form id="scoreForm" action="scripts/salvarscore.php" method="post">
+    <input type="hidden" id="scoreInput" name="score" value="">
+    <input type="hidden" id="apostaInput" name="aposta" value="">
+</form> -->
+
+<script src="game.js"></script>
+
+</html>
